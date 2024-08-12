@@ -21,12 +21,12 @@ const dummyProducts = [
 ]
 
 type Options = {
-  one: boolean
-  two: boolean
-  three: boolean
+  Kickstarter: boolean
+  Recommended: boolean
+  Superfast: boolean
 }
 
-const dummyOptions: Options = { one: true, two: true, three: true }
+const dummyOptions: Options = { Kickstarter: false, Recommended: false, Superfast: false }
 
 const productDetails: ProductDetails = {
   SEO: {
@@ -160,7 +160,7 @@ const Catalogue: React.FC = () => {
         <div className='grid grid-cols-1 md:grid-cols-4 gap-1 mt-4'>
           <div className='text-center text-2xl text-white p-3'></div>
           <div className='text-center text-2xl bg-cyan-600 text-white p-3'>
-            KICKSTART
+            KICKSTARTER
           </div>
           <div className='text-center text-2xl bg-cyan-600 text-white p-3'>
             RECOMMENDED
@@ -169,15 +169,30 @@ const Catalogue: React.FC = () => {
             SUPERFAST
           </div>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-1 pb-4'>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-1 pb-4 '>
           <div className='text-center text-2xl text-white p-3'></div>
-          <div className='relative text-center'>
+          <div className='relative text-center '>
+            <Image
+              src='https://res.cloudinary.com/dduiqwdtr/image/upload/v1723184590/Hexerve%20website%20assets/trianglePink.png'
+              alt='Triangle Pink'
+              width={350}
+              height={100}
+              className='w-full'
+            />
+            <div className='absolute inset-0 flex flex-col justify-center items-center text-white lg: text-md '>
+              <span>
+                <s>$595</s> $ 495 Per Month +{' '}
+              </span>
+              <span>One time $ 1,195</span>
+            </div>
+          </div>
+          <div className='relative text-center '>
             <Image
               src='https://res.cloudinary.com/dduiqwdtr/image/upload/v1723184590/Hexerve%20website%20assets/trianglePink.png'
               alt='Triangle Pink'
               width={300}
               height={100}
-              className='mx-auto '
+              className='w-full'
             />
             <div className='absolute inset-0 flex flex-col justify-center items-center text-white text-md'>
               <span>
@@ -186,28 +201,13 @@ const Catalogue: React.FC = () => {
               <span>One time $ 1,195</span>
             </div>
           </div>
-          <div className='relative text-center'>
+          <div className='relative text-center '>
             <Image
               src='https://res.cloudinary.com/dduiqwdtr/image/upload/v1723184590/Hexerve%20website%20assets/trianglePink.png'
               alt='Triangle Pink'
               width={300}
               height={100}
-              className='mx-auto'
-            />
-            <div className='absolute inset-0 flex flex-col justify-center items-center text-white text-md'>
-              <span>
-                <s>$595</s> $ 495 Per Month +{' '}
-              </span>
-              <span>One time $ 1,195</span>
-            </div>
-          </div>
-          <div className='relative text-center'>
-            <Image
-              src='https://res.cloudinary.com/dduiqwdtr/image/upload/v1723184590/Hexerve%20website%20assets/trianglePink.png'
-              alt='Triangle Pink'
-              width={300}
-              height={100}
-              className='mx-auto'
+              className='w-full'
             />
             <div className='absolute inset-0 flex flex-col justify-center items-center text-white text-md'>
               <span>
@@ -249,8 +249,9 @@ const Catalogue: React.FC = () => {
                     >
                       {item ? (
                         <span className='text-green-500 text-2xl'>✔️</span>
-                      ) : (<span className='text-red-500 text-2xl'>❌</span>)
-                      }
+                      ) : (
+                        <span className='text-red-500 text-2xl'>❌</span>
+                      )}
                     </div>
                   )
                 )}
